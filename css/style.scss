@@ -1,0 +1,157 @@
+$colors: (
+    primarry: #F05454,
+    text: #30475E,
+    bg: #EEEEEE
+);
+
+@function color($name) {
+    @return map-get($colors, $name);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: color(bg);
+    color: color(text);
+}
+
+nav {
+    display: flex;
+    width: 100vw;
+    height: 72px;
+    padding: 0 15%;
+    justify-content: space-between;
+    align-items: center;
+
+    .brand {
+        font-family: 'Quicksand';
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: color(primarry);
+    }
+
+    ul {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        li {
+            margin: 0 0 0 4rem;
+            list-style-type: none;
+
+            a {
+                color: color(text);
+                text-decoration: none;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            display: none;
+        }
+    }
+
+    .fas {
+        display: none;
+        font-size: 1.5rem;
+
+        @media (max-width: 1200px) {
+            display: block;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        padding: 0 10%;
+    }
+}
+
+header {
+    display: grid;
+    width: 100%;
+    min-height: 512px;
+    padding: 0 15%;
+    grid-template-columns: 512px 1fr;
+
+    img {
+        width: 512px;
+        height: 512px;
+
+        @media (max-width: 1200px) {
+            display: none;
+        }
+    }
+
+    .intro {
+        display: flex;
+        padding: 0 0 0 6rem;
+        flex-direction: column;
+        justify-content: center;
+
+        h1 {
+            font-family: 'Quicksand';
+            font-size: 3rem;
+
+            @media (max-width: 500px) {
+                font-size: 2rem;
+            }
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 100;
+            margin: 1.5rem 0 4rem;
+            padding: .5rem 0 .5rem 1rem;
+            border-left: 2px solid color(primarry);
+
+            @media (max-width: 500px) {
+                font-size: 1rem;
+            }
+        }
+
+        .cta {
+
+            a {
+                display: inline-block;
+                color: color(primarry);
+                text-decoration: none;
+
+                &:first-of-type {
+                    padding: .5rem 1.5rem;
+                    border: 2px solid color(primarry);
+                    border-radius: 1rem;
+                }
+
+                &:last-of-type {
+                    margin: 0 0 0 2rem;
+
+                    @media (max-width: 500px) {
+                        display: block;
+                        text-align: center;
+                        margin: 2rem 0 0;
+                    }
+                }
+
+                @media (max-width: 500px) {
+                    display: block;
+                    text-align: center;
+                }
+            }
+        }
+
+        @media (max-width: 1200px) {
+            padding: 0;
+        }
+    }
+
+    @media (max-width: 1400px) {
+        padding: 0 10%;
+    }
+
+    @media (max-width: 1200px) {
+        grid-template-columns: 1fr;
+    }
+}
