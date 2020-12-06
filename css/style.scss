@@ -18,6 +18,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: color(bg);
     color: color(text);
+    overflow-x: hidden;
 }
 
 nav {
@@ -48,16 +49,42 @@ nav {
                 color: color(text);
                 text-decoration: none;
             }
+
+            @media (max-width: 1200px) {
+                margin: 0;
+                padding: .2rem 1rem;
+                border-right: 2px solid color(primarry);
+                transition: .2s ease-in-out;
+
+                &:hover {
+                    background-color: color(primarry);
+                }
+            }
         }
 
         @media (max-width: 1200px) {
+            position: absolute;
             display: none;
+            min-width: 5vw;
+            height: 256px;
+            top: 72px;
+            right: 10%;
+            padding: 2rem 1rem;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            background-color: darken(color(bg), 10%);
+            z-index: 10;
         }
     }
 
     .fas {
         display: none;
         font-size: 1.5rem;
+
+        &:hover {
+            cursor: pointer;
+        }
 
         @media (max-width: 1200px) {
             display: block;
@@ -71,7 +98,7 @@ nav {
 
 header {
     display: grid;
-    width: 100%;
+    width: 100vw;
     min-height: 512px;
     padding: 0 15%;
     grid-template-columns: 512px 1fr;
@@ -153,5 +180,59 @@ header {
 
     @media (max-width: 1200px) {
         grid-template-columns: 1fr;
+    }
+}
+
+main {
+    width: 100vw;
+    padding: 8rem 15% 0;
+
+    section {
+        width: 100%;
+        margin: 0 0 12rem;
+
+        .sectionTitle {
+            width: fit-content;
+            margin: auto;
+            text-align: center;
+
+            & > div {
+                display: flex;
+                width: 12rem;
+                height: 7px;
+                margin: 0 0 .25rem;
+                justify-content: space-between;
+                align-items: center;
+
+                & > div {
+                    height: 3px;
+                    border: 2px solid color(bg);
+                    border-radius: 1rem;
+                    box-sizing: content-box;
+                }
+
+                & > div:nth-of-type(1),
+                & > div:nth-of-type(5) {
+                    width: 1.5rem;
+                    background-color: lighten(color(primarry) , 20%);
+                }
+
+                & > div:nth-of-type(2),
+                & > div:nth-of-type(4) {
+                    width: 2rem;
+                    background-color: lighten(color(primarry) , 10%);
+                }
+
+                & > div:nth-of-type(3) {
+                    width: 3rem;
+                    background-color: color(primarry);
+                }
+            }
+
+            h2 {
+                font-family: 'Quicksand';
+                font-weight: bold;
+            }
+        }
     }
 }
