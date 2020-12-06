@@ -286,4 +286,48 @@ main section .sectionTitle h2 {
   font-family: 'Quicksand';
   font-weight: bold;
 }
+
+main section .content {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  margin: 4.5rem 0 0;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -webkit-column-gap: 4rem;
+          column-gap: 4rem;
+}
+
+main section .content .card {
+  text-align: center;
+}
+
+main section .content .card i {
+  font-size: 4.5rem;
+  color: #F05454;
+}
+
+main section .content .card h4 {
+  margin: .5rem 0 1rem;
+}
+
+@media (max-width: 1000px) {
+  main section .content .card {
+    margin: 0 0 4rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  main section .content {
+    -webkit-column-gap: 2rem;
+            column-gap: 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  main section .content {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
 /*# sourceMappingURL=style.css.map */
